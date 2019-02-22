@@ -30,7 +30,7 @@ d x (U y z) =  U (d x y) (d x z)
 -- Derivada respecto a una cadena
 ds :: (Eq a) => [a] -> Reg a -> Reg a
 ds [] r = r
-ds (x:xs) r = d x (ds xs r)
+ds l r = d (last l) (ds (init l) r)
 
 -- Función para simplificar uniones y concatenaciones que incluyan a la cadena 
 -- vacía o a la expresión vacía
